@@ -23,8 +23,12 @@ Add the new episode(s) to records.
 
 The episode should start with the letter `E`, followed by one or more digits.\
 Example of usage:
-- ```python piotr.py add E001```
--   ```python piotr.py add E001 E002```
+```shell
+python piotr.py add E001
+```
+```shell
+python piotr.py add E001 E002
+```
 
 Positional arguments:
 -  `episode`     single episode (or list) to add to records (default number 1)
