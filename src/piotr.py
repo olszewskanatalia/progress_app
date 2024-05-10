@@ -1,12 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-def main():
-    
-    """ Main program """
-    print("ala")
-
-    return 0
+from arg_parser import PiotrRecordManager
 
 if __name__ == "__main__":
-    main()
+    PiotrRecordManager()
