@@ -34,3 +34,40 @@ def update_records(args):
 
         update_record(records=records, name=episode, number=update_to)
     save_records(records)
+
+
+def show_records(args):
+    records = read_records()
+
+    if args.sort:
+        records = sort(records, args.sort)
+
+    if args.bottom:
+        records = dict(list(records.items())[-args.bottom :])
+    elif args.top:
+        records = dict(list(records.items())[: args.top])
+
+    print_records(records)
+
+
+def pick_sort_option(sort_option):
+    if "-" in sort_option:
+        return sort_option.split("-")
+    elif sort_option in ("ep", "num"):
+        return [sort_option, "asc"]
+    else:
+        return ["num", sort_option]
+
+
+def print_records(records):
+    for episode, value in records.items():
+        print(f"{episode}: {value}")
+
+
+def sort(records, sort_option):
+    what, how = pick_sort_option(sort_option)
+    param = 1 if what == "num" else 0
+    sorted_records = sorted(
+        records.items(), key=lambda x: x[param], reverse=(how == "desc")
+    )
+    return dict(sorted_records)
