@@ -38,7 +38,32 @@ Optional arguments:
 
 ### Update
 
-Not implemented yet.
+Update the episode(s).
+
+    python piotr.py update [-h] [-n NUMBER | -s SET_UP | -r] episode [episode ...]
+
+The episode should start with the letter `E`, followed by one or more digits.
+Example of usage:
+```shell
+    python piotr.py update E001
+```
+```shell
+    python piotr.py update E001 E002 -n 2
+```
+```shell
+    python piotr.py update E001 -s 76
+```
+```shell
+    python piotr.py update E001 E002 E003 -r
+```
+Positional arguments:
+-  `episode`               single episode (or list) to update (default updated by 1)
+
+Optional arguments:
+-  `-h, --help`                  show this help message and exit
+-  `-n NUMBER, --number NUMBER`  update episodes by N number
+-  `-s SET_UP, --set-up SET_UP`  set records to N
+-  `-r, --reset`                 reset progress on episodes. These records will be set to 0
 
 ### Show
 
